@@ -10,7 +10,7 @@ class SportsDbService
 {
     protected $baseUrl = 'https://www.thesportsdb.com/api/v1/json/3';
 
-    public function getSoccerLeagues()
+   public function getSoccerLeagues()
     {
         try {
             $response = Http::get("{$this->baseUrl}/all_leagues.php");
@@ -111,8 +111,8 @@ class SportsDbService
         try {
             // Endpoint ini hanya berfungsi jika tersedia untuk liga tertentu
             $response = Http::timeout(10)->get("{$this->baseUrl}/lookuptable.php?l={$leagueId}&s={$season}");
-            \Log::info('Standings API Status: ' . $response->status());
-            \Log::info('Standings API Response: ', $response->json());
+            Log::info('Standings API Status: ' . $response->status());
+            Log::info('Standings API Response: ', $response->json());
             $table = $response->json()['table'] ?? [];
             return collect($table)->map(function ($team) {
                 return [
@@ -142,33 +142,13 @@ class SportsDbService
 
     
 
-    public function getTeamsByLeague($leagueId)
-    {
-        try {
-            $response = Http::timeout(10)->get("{$this->baseUrl}/lookup_all_teams.php?l={$leagueId}");
-            \Log::info('Teams API Status: ' . $response->status());
-            \Log::info('Teams API Response: ', $response->json());
-            return collect($response->json()['teams'] ?? [])
-                ->map(function ($team) {
-                    return [
-                        'idTeam' => $team['idTeam'] ?? null,
-                        'strTeam' => $team['strTeam'] ?? 'Unknown',
-                        'strTeamBadge' => $team['strTeamBadge'] ?? 'https://via.placeholder.com/96',
-                    ];
-                })
-                ->values();
-        } catch (\Exception $e) {
-            \Log::error('Failed to fetch teams: ' . $e->getMessage());
-            return collect([]);
-        }
-    }
 
     public function getTeamDetails($teamId)
     {
         try {
             $response = Http::timeout(10)->get("{$this->baseUrl}/lookupteam.php?id={$teamId}");
-            \Log::info('Team Details API Status: ' . $response->status());
-            \Log::info('Team Details API Response: ', $response->json());
+            Log::info('Team Details API Status: ' . $response->status());
+            Log::info('Team Details API Response: ', $response->json());
             $team = $response->json()['teams'][0] ?? [];
             return [
                 'idTeam' => $team['idTeam'] ?? null,
@@ -182,8 +162,57 @@ class SportsDbService
                 'strWebsite' => $team['strWebsite'] ? 'https://' . $team['strWebsite'] : null,
             ];
         } catch (\Exception $e) {
-            \Log::error('Failed to fetch team details: ' . $e->getMessage());
+            Log::error('Failed to fetch team details: ' . $e->getMessage());
             return [];
+        }
+    }
+
+    public function getTeamsByLeague($leagueId)
+    {
+        try {
+            // Dapatkan nama liga dari leagueId
+            $leagueResponse = Http::timeout(10)->get("{$this->baseUrl}/lookupleague.php?id={$leagueId}");
+            Log::info('League Lookup API Status: ' . $leagueResponse->status());
+            Log::info('League Lookup API Response: ', $leagueResponse->json());
+            $leagueName = $leagueResponse->json()['leagues'][0]['strLeague'] ?? null;
+
+            if (!$leagueName) {
+                Log::error('League name not found for ID: ' . $leagueId);
+                return collect([]);
+            }
+
+            // Gunakan nama liga untuk mencari tim
+            $response = Http::timeout(10)->get("{$this->baseUrl}/search_all_teams.php", [
+                'l' => $leagueName
+            ]);
+            Log::info('Teams API Status: ' . $response->status());
+            Log::info('Teams API Response: ', $response->json());
+            return collect($response->json()['teams'] ?? [])
+                ->map(function ($team) {
+                    if (!empty($team['strTeamBadge']) && filter_var($team['strTeamBadge'], FILTER_VALIDATE_URL)) {
+                        $filename = 'team_' . md5($team['strTeamBadge']) . '.png';
+                        $path = storage_path('app/public/badges/' . $filename);
+                        if (!file_exists($path)) {
+                            try {
+                                $image = Http::get($team['strTeamBadge'])->body();
+                                \Storage::disk('public')->put('badges/' . $filename, $image);
+                            } catch (\Exception $e) {
+                                Log::error('Failed to cache team badge: ' . $e->getMessage());
+                                $team['strTeamBadge'] = null;
+                            }
+                        }
+                        $team['strTeamBadge'] = asset('storage/badges/' . $filename);
+                    }
+                    return [
+                        'idTeam' => $team['idTeam'] ?? null,
+                        'strTeam' => $team['strTeam'] ?? 'Unknown',
+                        'strTeamBadge' => $team['strTeamBadge'] ?? null,
+                    ];
+                })
+                ->values();
+        } catch (\Exception $e) {
+            Log::error('Failed to fetch teams for league ID ' . $leagueId . ': ' . $e->getMessage());
+            return collect([]);
         }
     }
 }
