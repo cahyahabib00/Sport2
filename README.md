@@ -1,8 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Berikut adalah versi `README.md` yang sudah diperbaiki dengan gaya profesional, struktur yang rapi, dan tampilan yang enak dibaca, sesuai standar proyek open-source GitHub:
-
----
 
 ````markdown
 # ⚽ Soccer App
@@ -244,8 +240,8 @@ Proyek ini dilisensikan di bawah **MIT License**. Lihat file [LICENSE](./LICENSE
 
 ## 📬 Kontak
 
-Dikembangkan oleh **\[Nama Kamu / Universitas Aisyah Pringsewu]**
-📧 Email: \[[email@example.com](mailto:email@example.com)]
+Dikembangkan oleh **\[Cahya Habib / Universitas Aisyah Pringsewu]**
+📧 Email: \[[email@example.com](mailto:cahyahabib56@example.com)]
 💻 GitHub: [https://github.com/cahyahabib00](https://github.com/cahyahabib00)
 
 ---
@@ -255,13 +251,4 @@ Dikembangkan oleh **\[Nama Kamu / Universitas Aisyah Pringsewu]**
 
 ```
 
----
-
-Jika kamu ingin saya bantu mengganti bagian seperti:
-
-- Nama kamu/instansi,
-- Email,
-- Atau menambahkan badge (seperti GitHub stars, issues, license, dsb),
-
-tinggal bilang saja, akan aku bantu tambahkan!
 ```
