@@ -16,12 +16,12 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-3xl font-bold text-red-600">Soccer App</a>
             <ul class="hidden md:flex space-x-6 text-sm font-semibold text-gray-300">
-                <li><a href="#">NFL</a></li>
-                <li><a href="#">NBA</a></li>
-                <li><a href="#">MLB</a></li>
-                <li><a href="#">NCAAM</a></li>
-                <li><a href="#">Soccer</a></li>
-                <li><a href="#">NCAAW</a></li>
+                <li><a href="#">Liga Terkini</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="/favorites">Team Favorit</a></li>
+                <li><a href="#">Klasement</a></li>
+                <li><a href="#">Pertandingan</a></li>
+                {{-- <li><a href="#">NCAAW</a></li> --}}
             </ul>
             <div class="text-white">
                 <i class="fas fa-user-circle text-xl"></i>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('team_id');
             $table->string('team_name');
-            $table->string('logo_url');
+            $table->string('logo_url')->nullable()->change();
             $table->timestamps();
         });
     }

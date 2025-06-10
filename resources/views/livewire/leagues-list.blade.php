@@ -28,7 +28,7 @@
                         </a>
                         <a href="/league/{{ $league['idLeague'] }}/teams" 
                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm">
-                            Tim
+                            Team
                         </a>
                     </div>
                 </div>

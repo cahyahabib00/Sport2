@@ -1,19 +1,19 @@
-<div class="max-w-4xl mx-auto w-full>
+<div class="max-w-4xl mx-auto w-full">
     <!-- Loading Spinner -->
     <div wire:loading class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
         <div class="animate-spin h-10 w-10 border-4 border-red-600 border-t-transparent rounded-full"></div>
     </div>
 
     <!-- Flash Message -->
-    @if (session()->has('message')))
-        <div class="bg-green-800 text-white-4 p-4 rounded-lg mb-4 text-center">
+    @if (session()->has('message'))
+        <div class="bg-green-800 text-white p-4 rounded-lg mb-4 text-center">
             {{ session('message') }}
         </div>
     @endif
 
     <!-- Header -->
-    <h2> class="text-3xl md:text-4xl font-bold text-white-8 mb">
-    Detail Tim
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Detail Tim
     </h2>
 
     <!-- Team Details -->

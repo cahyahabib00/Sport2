@@ -1,61 +1,267 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Berikut adalah versi `README.md` yang sudah diperbaiki dengan gaya profesional, struktur yang rapi, dan tampilan yang enak dibaca, sesuai standar proyek open-source GitHub:
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+````markdown
+# ⚽ Soccer App
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Soccer App** adalah aplikasi web berbasis **Laravel** yang dirancang untuk penggemar sepak bola. Aplikasi ini memungkinkan pengguna untuk menjelajahi informasi tentang liga, pertandingan, klasemen, tim, serta menyimpan tim favorit mereka.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Dengan antarmuka modern dan responsif yang dibangun menggunakan **Tailwind CSS**, aplikasi ini mengintegrasikan data real-time dari **API TheSportsDB** untuk memberikan pengalaman interaktif dan informatif bagi pengguna.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ✨ Fitur Utama
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📋 Daftar Liga
+- Menampilkan daftar liga sepak bola dari seluruh dunia.
+- Dilengkapi logo, nama liga, dan tautan ke pertandingan, klasemen, serta tim.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🏟️ Daftar Pertandingan
+- Menampilkan pertandingan terakhir dalam liga tertentu.
+- Informasi meliputi skor, tim, tanggal, dan venue.
 
-## Laravel Sponsors
+### 📊 Klasemen Liga
+- Tabel peringkat untuk liga tertentu.
+- Informasi: nama tim, jumlah pertandingan, gol, poin, dan lainnya.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 👥 Daftar Tim
+- Grid tim dengan logo dan nama.
+- Tautan ke halaman detail tiap tim.
 
-### Premium Partners
+### 📄 Detail Tim
+- Menampilkan: nama, logo, tahun berdiri, negara, stadion, pelatih, deskripsi, dan website resmi.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### ⭐ Tim Favorit
+- Pengguna dapat menambahkan dan menghapus tim dari daftar favorit.
+- Halaman khusus untuk menampilkan tim favorit yang disimpan secara lokal di database SQLite.
 
-## Contributing
+### 🎨 Desain Modern & Responsif
+- Tema gelap dengan teks putih dan aksen merah.
+- Dioptimalkan untuk perangkat mobile, tablet, dan desktop.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🚀 Caching Logo
+- Logo liga dan tim disimpan lokal untuk menghindari masalah CORS dan meningkatkan performa.
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🛠️ Teknologi yang Digunakan
 
-## Security Vulnerabilities
+| Layer       | Teknologi                 |
+|-------------|---------------------------|
+| Backend     | Laravel 11.x, Livewire 3.x|
+| Frontend    | Tailwind CSS, Blade       |
+| Database    | SQLite                    |
+| API         | [TheSportsDB](https://www.thesportsdb.com) |
+| Bahasa      | PHP 8.1+, JavaScript      |
+| Tools       | Composer, NPM, Vite       |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## ⚙️ Prasyarat
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Pastikan sistem Anda telah menginstal:
+
+- PHP >= 8.1
+- Composer
+- Node.js >= 16.x + NPM
+- SQLite
+- Git
+- Koneksi internet (untuk API)
+
+---
+
+## 🚀 Cara Instalasi
+
+```bash
+# 1. Clone repository
+git clone https://github.com/cahyahabib00/Sport2.git
+cd Sport2
+
+# 2. Install dependensi PHP
+composer install
+
+# 3. Install dependensi frontend
+npm install
+
+# 4. Salin file environment
+cp .env.example .env
+
+# 5. Buat database SQLite
+touch database/database.sqlite
+````
+
+Edit file `.env`:
+
+```env
+DB_CONNECTION=sqlite
+DB_DATABASE=/absolute/path/to/Sport2/database/database.sqlite
+```
+
+```bash
+# 6. Generate application key
+php artisan key:generate
+
+# 7. Jalankan migrasi database
+php artisan migrate
+
+# 8. Buat symbolic link storage
+php artisan storage:link
+
+# (Opsional) Bersihkan cache jika perlu
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+php artisan optimize:clear
+```
+
+---
+
+## ▶️ Menjalankan Aplikasi
+
+```bash
+# Jalankan Laravel server
+php artisan serve
+```
+
+```bash
+# Jalankan Vite untuk frontend
+npm run dev
+```
+
+Akses aplikasi di browser: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 🧭 Navigasi Fitur
+
+* **Liga**: Klik “Liga” untuk menampilkan daftar liga sepak bola.
+* **Pertandingan**: Klik “Pertandingan” pada liga untuk melihat jadwal terbaru.
+* **Klasemen**: Klik “Klasemen” untuk melihat peringkat tim dalam liga.
+* **Tim**: Klik “Tim” untuk melihat daftar tim di liga.
+* **Detail Tim**: Klik nama tim untuk info lengkap.
+* **Favorit**: Tambahkan/hapus tim ke favorit di halaman detail, lalu cek daftar favorit di navbar.
+
+---
+
+## 📁 Struktur Proyek (Highlight)
+
+```
+Sport2/
+├── app/
+│   ├── Http/Livewire/
+│   │   ├── LeaguesList.php
+│   │   ├── MatchesList.php
+│   │   ├── MatchDetail.php
+│   │   ├── StandingsList.php
+│   │   ├── TeamsList.php
+│   │   ├── TeamDetail.php
+│   │   └── FavoriteTeamsList.php
+│   ├── Models/FavoriteTeam.php
+│   └── Services/SportsDbService.php
+├── database/database.sqlite
+├── resources/views/livewire/
+│   ├── leagues-list.blade.php
+│   ├── matches-list.blade.php
+│   ├── match-detail.blade.php
+│   ├── standings-list.blade.php
+│   ├── teams-list.blade.php
+│   ├── team-detail.blade.php
+│   └── favorite-teams-list.blade.php
+├── routes/web.php
+└── ...
+```
+
+---
+
+## 🧩 Troubleshooting
+
+### ⚠️ Class App\Services\SportsDbService does not exist
+
+* Pastikan file `app/Services/SportsDbService.php` ada dan namespace sesuai.
+* Jalankan:
+
+  ```bash
+  composer dump-autoload
+  ```
+
+### ⚠️ Logo Tidak Muncul
+
+* Periksa `storage/logs/laravel.log`.
+* Pastikan direktori `storage/app/public/badges` dapat ditulis (`writable`).
+
+### ⚠️ API Kosong / 429 Error
+
+* Coba buka API langsung di browser:
+
+  * `https://www.thesportsdb.com/api/v1/json/123/all_leagues.php`
+* Jika error 429 (Too Many Requests), tunggu 1-2 menit atau gunakan API key alternatif (contoh: `1`, `3`).
+
+### ⚠️ Error Database
+
+* Pastikan `database.sqlite` ada dan path-nya benar.
+* Jalankan ulang migrasi jika perlu:
+
+  ```bash
+  php artisan migrate:fresh
+  ```
+
+### ⚠️ Frontend Tidak Tampil
+
+* Pastikan `npm run dev` berjalan tanpa error.
+* Cek konsol browser (`F12`) untuk pesan error.
+
+---
+
+## 🤝 Kontribusi
+
+Kami terbuka untuk kontribusi dari siapa pun:
+
+1. Fork repository ini.
+2. Buat branch fitur baru:
+
+   ```bash
+   git checkout -b feature/nama-fitur
+   ```
+3. Commit perubahan:
+
+   ```bash
+   git commit -m "Menambahkan fitur X"
+   ```
+4. Push dan buat Pull Request.
+
+Juga silakan buka issue untuk bug atau saran fitur baru.
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah **MIT License**. Lihat file [LICENSE](./LICENSE) untuk detail.
+
+---
+
+## 📬 Kontak
+
+Dikembangkan oleh **\[Nama Kamu / Universitas Aisyah Pringsewu]**
+📧 Email: \[[email@example.com](mailto:email@example.com)]
+💻 GitHub: [https://github.com/cahyahabib00](https://github.com/cahyahabib00)
+
+---
+
+> Terima kasih telah menggunakan Soccer App!
+> Semoga aplikasi ini bisa menjadi teman setia Anda dalam menjelajahi dunia sepak bola. ⚽
+
+```
+
+---
+
+Jika kamu ingin saya bantu mengganti bagian seperti:
+
+- Nama kamu/instansi,
+- Email,
+- Atau menambahkan badge (seperti GitHub stars, issues, license, dsb),
+
+tinggal bilang saja, akan aku bantu tambahkan!
+```

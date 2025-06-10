@@ -12,12 +12,12 @@
     @endif
 
     <!-- Header -->
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Tim Favorit</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Team Favorit</h2>
 
     <!-- Favorite Teams Grid -->
     @if($teams->isEmpty())
         <div class="bg-gray-900 p-6 rounded-lg shadow">
-            <p class="text-gray-400 text-center">Belum ada tim favorit. Tambahkan tim dari halaman detail tim.</p>
+            <p class="text-gray-400 text-center">Belum ada team favorit. Tambahkan tim dari halaman detail tim.</p>
         </div>
     @else
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -40,7 +40,7 @@
     @endif
 
     <!-- Back Button -->
-    <a href="/leagues" class="mt-6 inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded transition duration-300">
+    <a href="/" class="mt-6 inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded transition duration-300">
         Kembali ke Daftar Liga
     </a>
 </div>
